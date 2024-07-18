@@ -1,16 +1,23 @@
 # test_frontend
 
-A new Flutter project.
+El siguiente proyecto en Flutter consiste en subir imagenes
 
-## Getting Started
+## Configuración
 
-This project is a starting point for a Flutter application.
+Se debe de cambiar la IP en el siguiente archivo `injection.dart`, en la linea 22.
 
-A few resources to get you started if this is your first Flutter project:
+Haciendo uso de emulado 
+```txt
+  getIt.registerLazySingleton<DioClient>(
+      () => DioClient(baseUrl: 'http://10.0.2.2:3000'),
+    );
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Haciendo uso de un dispositivo físico
+```
+getIt.registerLazySingleton<DioClient>(
+      () => DioClient(baseUrl: 'http://192.168.0.14:3000'),
+    );
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Notar que las IPs son diferente pero tienen el mismo puerto `:3000`
